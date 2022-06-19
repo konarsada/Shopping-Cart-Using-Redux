@@ -1,21 +1,19 @@
-import React from "react"
-import {useSelector, useDispatch} from "react-redux"
+import React from "react";
+import {useSelector} from "react-redux"
 
-import {increment, decrement, addNum} from "./store"
+import Auth from "./components/Auth";
+import Layout from "./components/Layout";
 
 function App() {
-    const counter = useSelector(state => state.counter)
-    const dispatch = useDispatch()
+    const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn)
 
+    const cartItems = useSelector(state => state.cartReducer.itemsList)
+    console.log(cartItems)
+    
     return (
-        <div>
-            <h1>Counter App</h1>
-            <h2>{counter}</h2>
-
-            <button onClick={() => dispatch(increment())}>Increment</button>
-            <button onClick={() => dispatch(decrement())}>Decrement</button>
-
-            <button onClick={() => dispatch(addNum(10))}>Add 10</button>
+        <div className="App">
+            {!isLoggedIn && <Auth />}
+            {isLoggedIn && <Layout />}
         </div>
     )
 }
