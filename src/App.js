@@ -12,7 +12,7 @@ function App() {
     
     return (
         <div className="App">
-            {!isLoggedIn && <Auth />}
+            {/*!isLoggedIn && <Auth />*/}
             {isLoggedIn && <Layout />}
         </div>
     )
