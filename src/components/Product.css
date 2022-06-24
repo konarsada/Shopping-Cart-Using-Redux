@@ -27,6 +27,7 @@ button {
   align-items: center;
   justify-content: center;
   box-shadow: 5px 5px 10px #ccc;
+  margin: 70px auto;
 }
 
 .card img {
