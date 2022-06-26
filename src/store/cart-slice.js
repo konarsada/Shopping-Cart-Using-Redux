@@ -50,6 +50,11 @@ const cartSlice = createSlice({
         replaceData(state, action) {
             state.totalQuantity = action.payload.totalQuantity
             state.itemsList = action.payload.itemsList
+
+            if(!state.itemsList) {
+                state.itemsList = []
+                state.totalQuantity = 0
+            }
         },
         setShowCart(state) {
             state.showCart = !state.showCart
